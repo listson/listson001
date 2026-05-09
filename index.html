@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华商学院 & 行之传媒 直播孵化基地项目规划</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #1A1D21;
+            --bg-secondary: #22262B;
+            --bg-card: #252A30;
+            --bg-card-hover: #2A3038;
+            --text-primary: #E8ECF1;
+            --text-secondary: #9CA3AF;
+            --text-muted: #6B7280;
+            --accent-blue: #5B8DB8;
+            --accent-blue-light: #7BA3C8;
+            --accent-gold: #B8956A;
+            --accent-gold-light: #D4AF7A;
+            --border-color: #2E353D;
+            --success: #4A9B7F;
+            --warning: #C49A5A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 80px;
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .slide-header {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slide-header h2 i {
+            color: var(--accent-gold);
+            font-size: 28px;
+        }
+
+        .slide-header .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-left: 44px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            margin: 16px 0 24px 44px;
+            border-radius: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .content-grid.four-col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+            opacity: 0.6;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(91, 141, 184, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--accent-blue-light);
+            font-size: 20px;
+        }
+
+        .card.gold .card-icon {
+            background: rgba(184, 149, 106, 0.15);
+            color: var(--accent-gold-light);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .card p, .card li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 12px;
+        }
+
+        .highlight-box {
+            background: rgba(91, 141, 184, 0.08);
+            border-left: 3px solid var(--accent-blue);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight-box.gold {
+            background: rgba(184, 149, 106, 0.08);
+            border-left-color: var(--accent-gold);
+        }
+
+        .metric-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .metric {
+            flex: 1;
+            text-align: center;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--bg-secondary);
+            color: var(--accent-gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 14px 16px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        tr:hover td {
+            background: rgba(91, 141, 184, 0.05);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(91, 141, 184, 0.15);
+            color: var(--accent-blue-light);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .tag.gold {
+            background: rgba(184, 149, 106, 0.15);
+            color: var(--accent-gold-light);
+        }
+
+        .tag.green {
+            background: rgba(74, 155, 127, 0.15);
+            color: #6BC4A6;
+        }
+
+        /* Cover Slide */
+        .cover-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1A1D21 0%, #1E2329 50%, #1A1D21 100%);
+        }
+
+        .cover-slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(91, 141, 184, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cover-slide::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 149, 106, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cover-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            background: rgba(184, 149, 106, 0.1);
+            border: 1px solid rgba(184, 149, 106, 0.3);
+            border-radius: 50px;
+            margin-bottom: 40px;
+            color: var(--accent-gold-light);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .cover-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #E8ECF1 0%, #B8956A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 60px;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .cover-meta {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cover-meta-item {
+            text-align: center;
+        }
+
+        .cover-meta-item .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .cover-meta-item .value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cover-image {
+            width: 100%;
+            max-width: 900px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+            opacity: 0.9;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .column-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .column-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-gold));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+            padding-left: 24px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .timeline-item.active::before {
+            background: var(--accent-gold);
+            box-shadow: 0 0 12px rgba(184, 149, 106, 0.4);
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Full width image banner */
+        .image-banner {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+            opacity: 0.85;
+        }
+
+        .image-banner-small {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Progress bars */
+        .progress-item {
+            margin-bottom: 16px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+            border-radius: 3px;
+        }
+
+        /* Footer */
+        .slide-footer {
+            margin-top: auto;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                min-height: 100vh;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .slide {
+                padding: 40px;
+            }
+            .content-grid.three-col, .content-grid.four-col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<div class="slide cover-slide">
+    <div class="cover-badge">
+        <i class="fas fa-handshake"></i>
+        产教融合战略合作项目
+    </div>
+    <h1 class="cover-title">
+        华商学院 & 行之传媒<br>
+        直播孵化基地项目规划
+    </h1>
+    <p class="cover-subtitle">
+        华南地区高校标杆性全链路直播人才产教融合示范基地<br>
+        打造"校内培训 · 校内孵化 · 校内签约 · 校内就业"闭环生态
+    </p>
+    <div class="cover-meta">
+        <div class="cover-meta-item">
+            <div class="label">合作方</div>
+            <div class="value">广州华商学院</div>
+        </div>
+        <div class="cover-meta-item">
+            <div class="label">合作方</div>
+            <div class="value">广州行之传媒有限公司</div>
+        </div>
+        <div class="cover-meta-item">
+            <div class="label">制定日期</div>
+            <div class="value">2026年5月</div>
+        </div>
+    </div>
+    <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/949726143c6ceb3ac5a6133ca93c3b28a05064e4.jpg" alt="Education Technology" class="cover-image">
+</div>
+
+<!-- Slide 2: Core Positioning -->
+<div class="slide">
+    <div class="slide-number">02 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-bullseye"></i>项目核心定位</h2>
+        <div class="subtitle">华南地区高校标杆性全链路直播人才产教融合示范基地</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="two-column" style="flex: 1;">
+        <div class="column-content">
+            <div class="highlight-box">
+                <strong style="color: var(--accent-gold);">核心使命</strong><br>
+                <span style="font-size: 15px; line-height: 1.8;">
+                依托华商学院<strong style="color: var(--text-primary);">5万+在校学生</strong>资源与行之传媒行业全链条资源，
+                严格遵循《网络主播行为规范》，培养兼具专业能力与正向价值观的职业化直播人才。
+                </span>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--accent-blue-light);">
+                    <i class="fas fa-sync-alt" style="margin-right: 8px;"></i>四大闭环生态
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto 10px;"><i class="fas fa-graduation-cap"></i></div>
+                        <div style="font-weight: 600; font-size: 15px;">校内培训</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">四级培训体系</div>
+                    </div>
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto 10px;"><i class="fas fa-egg"></i></div>
+                        <div style="font-weight: 600; font-size: 15px;">校内孵化</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">真实商业项目</div>
+                    </div>
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto 10px;"><i class="fas fa-file-signature"></i></div>
+                        <div style="font-weight: 600; font-size: 15px;">校内签约</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">头部企业对接</div>
+                    </div>
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto 10px;"><i class="fas fa-briefcase"></i></div>
+                        <div style="font-weight: 600; font-size: 15px;">校内就业</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">高质量就业赛道</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/0ae8b69e294197918e0b6df80ae8f010026bd90d.jpg" alt="Live Streaming Studio" class="column-image" style="height: 420px;">
+            <div class="metric-row" style="margin-top: 16px;">
+                <div class="metric">
+                    <span class="metric-value">50+</span>
+                    <span class="metric-label">合作头部企业</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">5万+</span>
+                    <span class="metric-label">在校学生资源</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">800+</span>
+                    <span class="metric-label">年就业岗位</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 3: Employment Value -->
+<div class="slide">
+    <div class="slide-number">03 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-chart-line"></i>核心价值一：就业质量全面跃升</h2>
+        <div class="subtitle">打造就业工作亮点，开辟高质量就业新赛道</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="content-grid three-col">
+        <div class="card gold">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h3>高量级岗位供给</h3>
+            <ul>
+                <li>依托娱加、网易、禅游、途游等<strong>50+行业头部企业</strong></li>
+                <li>每年提供不少于<strong style="color: var(--accent-gold);">800个稳定就业岗位</strong></li>
+                <li>覆盖主播、运营、经纪人、策划、编导等全产业链</li>
+                <li>显著提升学校整体就业率</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+            <h3>高薪就业标杆</h3>
+            <ul>
+                <li>直播行业薪资高于传统服务业<strong style="color: var(--accent-gold);">30%-50%</strong></li>
+                <li>头部岗位年薪可达<strong>数十万元</strong></li>
+                <li>重点培养高薪就业典型</li>
+                <li>形成"华商直播人才"就业品牌</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>就业数据可视化</h3>
+            <ul>
+                <li>建立完整学生就业跟踪体系</li>
+                <li>形成标准化就业数据报告</li>
+                <li>可直接用于就业工作汇报</li>
+                <li>支撑本科教学评估等重要场景</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <div class="card" style="display: flex; align-items: center; gap: 24px;">
+            <div style="flex: 1;">
+                <h3 style="margin-bottom: 12px;"><i class="fas fa-laptop-house" style="color: var(--accent-blue); margin-right: 8px;"></i>灵活就业渠道拓展</h3>
+                <p style="line-height: 1.8;">为学生提供兼职直播、短视频创作等灵活就业机会，帮助学生在校期间实现经济独立，缓解家庭经济压力，同时积累职业经验。实现学业与职业发展的双向促进。</p>
+            </div>
+        </div>
+        <div class="card gold" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 42px; font-weight: 900; color: var(--accent-gold);">30-50%</div>
+            <div style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;">薪资溢价空间</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-color);">
+                远高于传统服务业平均水平
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 4: Teaching & Brand -->
+<div class="slide">
+    <div class="slide-number">04 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-university"></i>核心价值二：教学升级与品牌提升</h2>
+        <div class="subtitle">推动产教融合落地，打造特色校园名片</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="two-column">
+        <div>
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                <h3>特色课程体系共建</h3>
+                <ul>
+                    <li>输出行业前沿直播与新媒体课程体系</li>
+                    <li>纳入选修课或学分置换体系</li>
+                    <li>共建"直播电商""新媒体运营""数字内容创作"方向</li>
+                    <li>提升数字经济领域专业竞争力</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>双师型师资建设</h3>
+                <ul>
+                    <li>学校教师免费参与行业培训和实战</li>
+                    <li>行业大咖、头部主播担任兼职讲师</li>
+                    <li>带来一线行业经验与案例</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.lambdaav.io/ffa39f4b15fa80141428951376eccb665b25b5a8.jpg" alt="Broadcast Room" class="column-image" style="height: 200px; margin-bottom: 20px;">
+            <div class="card gold">
+                <div class="card-icon"><i class="fas fa-award"></i></div>
+                <h3>品牌影响力显著提升</h3>
+                <ul>
+                    <li>打造<strong>"华商直播"特色品牌</strong></li>
+                    <li>树立数字经济人才培养标杆</li>
+                    <li>链接行业头部企业、平台、MCN机构</li>
+                    <li>媒体曝光度与社会形象双提升</li>
+                    <li>增强招生吸引力，吸引优质生源</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 5: Economic & Innovation -->
+<div class="slide">
+    <div class="slide-number">05 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-coins"></i>核心价值三：经济收益与创业孵化</h2>
+        <div class="subtitle">稳定多元收益 + 学生创新创业能力培养</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="content-grid">
+        <div class="card gold">
+            <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <h3>稳定多元经济收益</h3>
+            <div class="highlight-box gold" style="margin: 12px 0;">
+                <strong style="color: var(--accent-gold); font-size: 18px;">收益五五分成机制</strong><br>
+                <span style="font-size: 13px;">基地所有运营收益（入驻机构租赁费、签约服务费、主播收益分成、培训认证费等）按 <strong>5:5</strong> 比例平均分配</span>
+            </div>
+            <ul>
+                <li>共同申报省市级产教融合示范基地补贴</li>
+                <li>承接校内直播活动、宣传推广业务</li>
+                <li>降低学校宣传成本，创造额外收益</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-rocket"></i></div>
+            <h3>创业孵化平台</h3>
+            <ul>
+                <li>提供免费场地、设备与技术支持</li>
+                <li>帮助学生成立MCN工作室、电商公司</li>
+                <li>组织参加"互联网+"等创新创业大赛</li>
+                <li>积累成功创业校友资源，反哺学校</li>
+            </ul>
+            <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/2433a32c505e11a375eae3d87a1d7b92827c94bb.jpg" alt="Streaming Setup" style="width: 100%; height: 100px; object-fit: cover; border-radius: 6px; margin-top: 12px; opacity: 0.8;">
+        </div>
+    </div>
+
+    <div style="margin-top: 24px;" class="card">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+            <div>
+                <i class="fas fa-seedling" style="font-size: 28px; color: var(--accent-blue); margin-bottom: 10px;"></i>
+                <div style="font-weight: 600; margin-bottom: 6px;">公益直播助农</div>
+                <div style="font-size: 12px; color: var(--text-muted);">助力乡村振兴</div>
+            </div>
+            <div>
+                <i class="fas fa-landmark" style="font-size: 28px; color: var(--accent-gold); margin-bottom: 10px;"></i>
+                <div style="font-weight: 600; margin-bottom: 6px;">传统文化传播</div>
+                <div style="font-size: 12px; color: var(--text-muted);">打造特色IP</div>
+            </div>
+            <div>
+                <i class="fas fa-users" style="font-size: 28px; color: var(--accent-blue); margin-bottom: 10px;"></i>
+                <div style="font-weight: 600; margin-bottom: 6px;">社区服务拓展</div>
+                <div style="font-size: 12px; color: var(--text-muted);">技能培训指导</div>
+            </div>
+            <div>
+                <i class="fas fa-heart" style="font-size: 28px; color: var(--accent-gold); margin-bottom: 10px;"></i>
+                <div style="font-weight: 600; margin-bottom: 6px;">社会服务能力</div>
+                <div style="font-size: 12px; color: var(--text-muted);">提升美誉度</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 6: Rights & Responsibilities -->
+<div class="slide">
+    <div class="slide-number">06 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-balance-scale"></i>双方权益与责任划分</h2>
+        <div class="subtitle">权责清晰，协同共建，实现四方共赢</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="two-column">
+        <div class="card" style="border-top: 3px solid var(--accent-blue);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="width: 48px; height: 48px; background: rgba(91, 141, 184, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-university" style="color: var(--accent-blue); font-size: 20px;"></i>
+                </div>
+                <div>
+                    <div style="font-size: 20px; font-weight: 700;">华商学院</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">GUANGZHOU HUASHANG COLLEGE</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--accent-gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">核心权益</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span class="tag">运营收益50%分配</span>
+                    <span class="tag">完整课程体系</span>
+                    <span class="tag">师资支持</span>
+                    <span class="tag">优先使用基地资源</span>
+                    <span class="tag">共同申报政府项目</span>
+                    <span class="tag">运营监督权</span>
+                </div>
+            </div>
+
+            <div>
+                <div style="font-size: 13px; font-weight: 600; color: var(--accent-blue-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">核心责任</div>
+                <ul style="font-size: 13px; line-height: 1.8;">
+                    <li>利用官网、公众号、班级群等渠道进行招募宣传</li>
+                    <li>允许举办宣讲会、招聘会、体验活动和直播大赛</li>
+                    <li>给予培训课程学分认定支持</li>
+                    <li>协助学生日常管理，处理学业冲突</li>
+                    <li>负责场地安全、网络电力保障</li>
+                    <li>授权"华商学院"品牌合法使用</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-gold);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="width: 48px; height: 48px; background: rgba(184, 149, 106, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-broadcast-tower" style="color: var(--accent-gold); font-size: 20px;"></i>
+                </div>
+                <div>
+                    <div style="font-size: 20px; font-weight: 700;">行之传媒</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">XINGZHI MEDIA CO., LTD</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--accent-gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">核心权益</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span class="tag gold">独家运营管理权</span>
+                    <span class="tag gold">自主制定筛选标准</span>
+                    <span class="tag gold">优先签约权</span>
+                    <span class="tag gold">商业活动独家运营</span>
+                    <span class="tag gold">收益50%分配</span>
+                </div>
+            </div>
+
+            <div>
+                <div style="font-size: 13px; font-weight: 600; color: var(--accent-gold-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">核心责任</div>
+                <ul style="font-size: 13px; line-height: 1.8;">
+                    <li>组建不少于<strong>10人</strong>专业运营团队</li>
+                    <li>邀请不少于<strong>20人</strong>兼职讲师团</li>
+                    <li>第一年引进不少于<strong>15家</strong>优质机构入驻</li>
+                    <li>建立四级培训体系，确保培训质量</li>
+                    <li>确保合格学生<strong>100%</strong>就业推荐</li>
+                    <li>建立三级内容审核制度，24小时监控</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 7: Execution Phase 1-2 -->
+<div class="slide">
+    <div class="slide-number">07 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-tasks"></i>分阶段执行路径（一）</h2>
+        <div class="subtitle">从筹备启动到基础培养，构建扎实运营根基</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="two-column">
+        <div>
+            <div style="background: var(--bg-card); border-radius: 12px; padding: 28px; border: 1px solid var(--border-color); margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="width: 36px; height: 36px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">1</div>
+                    <div style="font-size: 18px; font-weight: 700;">基地启动筹备 <span style="font-size: 13px; color: var(--accent-gold); font-weight: 500;">（1个月）</span></div>
+                </div>
+                <ul style="font-size: 14px; line-height: 1.8; color: var(--text-secondary);">
+                    <li>完成核心运营团队招聘和入职培训</li>
+                    <li>组建兼职讲师团并进行教学标准化培训</li>
+                    <li>制定基地管理制度、运营流程和学生管理手册</li>
+                    <li>完成首批<strong style="color: var(--accent-gold);">10家优质机构</strong>签约入驻</li>
+                    <li>制作宣传材料，在校内进行全方位覆盖</li>
+                    <li>举办基地启动仪式暨首场行业大咖分享会</li>
+                </ul>
+            </div>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.bibiled.com/b943dc69ab9489fe52790c5fe531fb61b70a0813.jpg" alt="Live Commerce" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color);">
+        </div>
+
+        <div>
+            <div style="background: var(--bg-card); border-radius: 12px; padding: 28px; border: 1px solid var(--border-color); height: calc(100% - 0px);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="width: 36px; height: 36px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">2</div>
+                    <div style="font-size: 18px; font-weight: 700;">主播招募与基础培养 <span style="font-size: 13px; color: var(--accent-gold); font-weight: 500;">（持续进行）</span></div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">常态化招募机制</div>
+                    <div style="display: flex; gap: 10px;">
+                        <div style="flex: 1; background: var(--bg-secondary); padding: 12px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 20px; font-weight: 700; color: var(--accent-blue);">每季度</div>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">大型招募活动</div>
+                        </div>
+                        <div style="flex: 1; background: var(--bg-secondary); padding: 12px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 20px; font-weight: 700; color: var(--accent-gold);">每月</div>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">小型专场招募</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">模块化基础培养体系</div>
+                <div style="display: grid; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-secondary); border-radius: 6px;">
+                        <i class="fas fa-lightbulb" style="color: var(--accent-blue);"></i>
+                        <span style="font-size: 13px;"><strong>行业认知模块：</strong>发展趋势、职业路径、法规与职业道德</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-secondary); border-radius: 6px;">
+                        <i class="fas fa-tools" style="color: var(--accent-gold);"></i>
+                        <span style="font-size: 13px;"><strong>通用技能模块：</strong>新媒体运营、摄影摄像、视频后期、数据分析</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-secondary); border-radius: 6px;">
+                        <i class="fas fa-user-graduate" style="color: var(--accent-blue);"></i>
+                        <span style="font-size: 13px;"><strong>专业方向模块：</strong>娱乐、游戏、语音、电商针对性培养</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-secondary); border-radius: 6px;">
+                        <i class="fas fa-video" style="color: var(--accent-gold);"></i>
+                        <span style="font-size: 13px;"><strong>模拟实操模块：</strong>导师指导下模拟直播与短视频创作</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 8: Execution Phase 3-4 -->
+<div class="slide">
+    <div class="slide-number">08 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-rocket"></i>分阶段执行路径（二）</h2>
+        <div class="subtitle">进阶孵化签约就业，品牌建设生态拓展</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="content-grid">
+        <div style="grid-column: span 1;">
+            <div style="background: var(--bg-card); border-radius: 12px; padding: 28px; border: 1px solid var(--border-color); height: 100%;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">3</div>
+                    <div style="font-size: 18px; font-weight: 700;">进阶孵化与签约就业</div>
+                </div>
+                <div style="font-size: 13px; color: var(--accent-gold); margin-bottom: 12px; font-weight: 500;">持续进行 · 商业实战导向</div>
+                <ul style="font-size: 14px; line-height: 1.8; color: var(--text-secondary);">
+                    <li>制定个性化孵化方案，参与<strong>真实商业项目</strong></li>
+                    <li>优秀学员配备<strong>专属经纪人</strong>一对一指导</li>
+                    <li>提供流量扶持和资源对接，打造个人IP</li>
+                    <li>组织考取演出经纪资格证、全媒体运营师等证书</li>
+                    <li><strong>每月举办校企双选会</strong>，协助签订正式合同</li>
+                    <li>建立签约跟踪服务机制，提供二次培训机会</li>
+                </ul>
+            </div>
+        </div>
+        <div style="grid-column: span 1;">
+            <div style="background: var(--bg-card); border-radius: 12px; padding: 28px; border: 1px solid var(--border-color); height: 100%;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">4</div>
+                    <div style="font-size: 18px; font-weight: 700;">品牌建设与生态拓展</div>
+                </div>
+                <div style="font-size: 13px; color: var(--accent-gold); margin-bottom: 12px; font-weight: 500;">第6个月起 · 规模化发展</div>
+                <ul style="font-size: 14px; line-height: 1.8; color: var(--text-secondary);">
+                    <li>重点扶持<strong style="color: var(--accent-gold);">10-20名</strong>学生主播，打造百万粉丝级正能量IP</li>
+                    <li>举办校内直播大赛和短视频创作大赛</li>
+                    <li>组织学生参与行业赛事，提升知名度</li>
+                    <li>拓展<strong>"直播+乡村振兴""直播+传统文化""直播+公益"</strong></li>
+                    <li>共同申报广州市、广东省产教融合示范基地</li>
+                    <li>将模式向其他高校推广复制</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+        <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/3423cc683d612f2c8ed8a9c6b598ed9261310e27.jpg" alt="Professional Studio" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); opacity: 0.85;">
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 9: Revenue -->
+<div class="slide">
+    <div class="slide-number">09 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-chart-bar"></i>收益来源与分配机制</h2>
+        <div class="subtitle">多元化收益结构，第一年预计总收益309-339万元</div>
+        <div class="divider"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; flex: 1;">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">收益类型</th>
+                        <th style="width: 35%;">收费标准</th>
+                        <th style="width: 20%;">第一年预计收入</th>
+                        <th style="width: 23%;">备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>入驻机构统一服务费</strong></td>
+                        <td>直播间：1000元/月/间（含设备）<br>办公工位：500元/月/个</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">99万元</td>
+                        <td>按15家机构、平均3个直播间、5个工位计算</td>
+                    </tr>
+                    <tr>
+                        <td><strong>主播签约服务费</strong></td>
+                        <td>2000-3000元/人（一次性）</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">50万元</td>
+                        <td>按200人签约、平均2500元/人计算</td>
+                    </tr>
+                    <tr>
+                        <td><strong>统一主播收益分成</strong></td>
+                        <td>直播收益的5%</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">40万元</td>
+                        <td>随主播成长逐年大幅增长</td>
+                    </tr>
+                    <tr>
+                        <td><strong>培训与认证费用</strong></td>
+                        <td>进阶孵化培训：按需收取<br>职业资格认证：1500-3000元/项</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">40万元</td>
+                        <td>基础培训免费</td>
+                    </tr>
+                    <tr>
+                        <td><strong>广告与活动收入</strong></td>
+                        <td>广告位出租 + 活动赞助</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">30万元</td>
+                        <td>补充收益</td>
+                    </tr>
+                    <tr style="background: rgba(184, 149, 106, 0.05);">
+                        <td><strong>政府补贴收入</strong></td>
+                        <td>产教融合补贴 + 就业创业补贴</td>
+                        <td style="color: var(--accent-gold); font-weight: 700;">50-80万元</td>
+                        <td>政策收益</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box gold" style="margin-top: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong style="color: var(--accent-gold); font-size: 16px;">第一年预计总收益</strong>
+                        <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">不含政府补贴为259万元</div>
+                    </div>
+                    <div style="font-size: 32px; font-weight: 900; color: var(--accent-gold);">309-339<span style="font-size: 16px;">万元</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card gold" style="margin-bottom: 20px;">
+                <h3 style="font-size: 16px; margin-bottom: 16px;"><i class="fas fa-percentage" style="margin-right: 8px;"></i>收益分配比例</h3>
+                <div style="text-align: center; padding: 20px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 16px;">
+                    <div style="font-size: 36px; font-weight: 900; color: var(--accent-gold);">50 : 50</div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">所有收益扣除成本后平均分配</div>
+                </div>
+                <div style="font-size: 13px; line-height: 1.8;">
+                    <div style="margin-bottom: 8px;"><strong style="color: var(--accent-blue-light);">成本构成：</strong></div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>人员工资</span><span>40%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 40%;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>设备折旧与维护</span><span>10%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>水电物业</span><span>5%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>营销推广</span><span>10%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>其他运营成本</span><span>5%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 10: Risk Management -->
+<div class="slide">
+    <div class="slide-number">10 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-shield-alt"></i>全面风险规避体系</h2>
+        <div class="subtitle">四维风险防控，确保项目稳健运营</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="content-grid four-col">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-gavel"></i></div>
+            <h3>政策与合规风险</h3>
+            <ul>
+                <li>专人跟踪行业政策变化</li>
+                <li>严格执行《网络主播行为规范》</li>
+                <li>制定《基地内容管理细则》</li>
+                <li>三级内容审核，24小时监控</li>
+                <li>推动主播持证上岗</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+            <h3>学生管理风险</h3>
+            <ul>
+                <li>原则上不占用正常上课时间</li>
+                <li>签订《培训协议》《安全责任书》</li>
+                <li>建立考勤和违纪劝退制度</li>
+                <li>配备专职心理辅导员</li>
+                <li>购买意外伤害保险</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>市场与运营风险</h3>
+            <ul>
+                <li>差异化竞争优势定位</li>
+                <li>与入驻机构签长期合作协议</li>
+                <li>建立主播激励机制</li>
+                <li>多元化收益来源</li>
+                <li>建立行业波动应急预案</li>
+            </ul>
+        </div>
+        <div class="card gold">
+            <div class="card-icon"><i class="fas fa-handshake"></i></div>
+            <h3>合作风险管控</h3>
+            <ul>
+                <li>签订详细合作协议</li>
+                <li>每月一次联席会议制度</li>
+                <li>设立共同管理委员会</li>
+                <li>每月公开财务报表</li>
+                <li>明确终止后资产处置方案</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px;" class="card">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+            <div>
+                <i class="fas fa-check-circle" style="font-size: 24px; color: var(--success); margin-bottom: 8px;"></i>
+                <div style="font-weight: 600;">合规先行</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">所有主播须完成法规培训并考核合格</div>
+            </div>
+            <div>
+                <i class="fas fa-eye" style="font-size: 24px; color: var(--accent-blue); margin-bottom: 8px;"></i>
+                <div style="font-weight: 600;">全程监控</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">三级审核：主播自查-基地审核-平台审核</div>
+            </div>
+            <div>
+                <i class="fas fa-balance-scale-right" style="font-size: 24px; color: var(--accent-gold); margin-bottom: 8px;"></i>
+                <div style="font-weight: 600;">透明治理</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">双方各派2名代表组成管理委员会</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 11: Values -->
+<div class="slide">
+    <div class="slide-number">11 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-heart"></i>正向价值观孵化体系</h2>
+        <div class="subtitle">培养兼具专业能力与正向价值观的职业化直播人才</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="two-column">
+        <div>
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>价值观教育融入培养全过程</h3>
+                <ul>
+                    <li>"社会主义核心价值观与直播行业责任"<strong>必修课</strong></li>
+                    <li>开设"中华优秀传统文化传播""网络文明建设""主播职业道德"专题</li>
+                    <li>邀请道德模范、正能量主播专题讲座</li>
+                    <li>案例教学法：对比分析正反面案例</li>
+                </ul>
+            </div>
+            <div class="card gold">
+                <div class="card-icon"><i class="fas fa-star"></i></div>
+                <h3>主播信用体系建设</h3>
+                <ul>
+                    <li>建立主播信用档案，量化评分</li>
+                    <li>信用评分与资源扶持、签约机会挂钩</li>
+                    <li>严重违规者拉黑并纳入行业黑名单</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/3d3cdb555c0782defe63e466220a2c57eed2a2e3.jpg" alt="Creative Studio" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 20px;">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-award"></i></div>
+                <h3>正能量内容创作扶持</h3>
+                <div class="highlight-box" style="margin: 12px 0;">
+                    <strong style="color: var(--accent-gold);">华商正能量内容创作基金</strong><br>
+                    <span style="font-size: 13px;">对优秀正能量内容进行现金奖励和流量扶持</span>
+                </div>
+                <ul>
+                    <li>定期评选"华商正能量主播"和"优秀正能量作品"</li>
+                    <li>组织创作"华商校园故事""广东传统文化""乡村振兴""公益科普"主题</li>
+                    <li>开展"直播+公益"活动：助农直播、公益义卖、反诈宣传、环保宣传</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 12: Expected Results -->
+<div class="slide">
+    <div class="slide-number">12 / 13</div>
+    <div class="slide-header">
+        <h2><i class="fas fa-trophy"></i>项目预期成果</h2>
+        <div class="subtitle">短中长期目标清晰，打造华南地区高校直播人才孵化标杆</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="content-grid three-col">
+        <div class="card">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                <div style="padding: 6px 12px; background: var(--accent-blue); color: white; border-radius: 6px; font-size: 12px; font-weight: 700;">短期</div>
+                <div style="font-size: 13px; color: var(--text-muted);">1年内</div>
+            </div>
+            <ul>
+                <li>引进<strong style="color: var(--accent-blue);">15家+</strong>优质MCN机构和企业入驻</li>
+                <li>培训学生主播<strong style="color: var(--accent-blue);">500人+</strong>，签约<strong style="color: var(--accent-blue);">200人+</strong></li>
+                <li>实现年营收<strong style="color: var(--accent-gold);">250万元+</strong>（不含政府补贴）</li>
+                <li>打造<strong style="color: var(--accent-blue);">10个+</strong>万粉级正能量账号</li>
+                <li>成为学校特色产教融合实践基地</li>
+            </ul>
+            <div class="metric-row" style="margin-top: 16px;">
+                <div class="metric" style="padding: 10px;">
+                    <span class="metric-value" style="font-size: 20px;">15+</span>
+                    <span class="metric-label">入驻机构</span>
+                </div>
+                <div class="metric" style="padding: 10px;">
+                    <span class="metric-value" style="font-size: 20px;">500+</span>
+                    <span class="metric-label">培训人数</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                <div style="padding: 6px 12px; background: var(--accent-gold); color: white; border-radius: 6px; font-size: 12px; font-weight: 700;">中期</div>
+                <div style="font-size: 13px; color: var(--text-muted);">2-3年</div>
+            </div>
+            <ul>
+                <li>累计培训<strong style="color: var(--accent-blue);">1500人+</strong>，签约<strong style="color: var(--accent-blue);">800人+</strong></li>
+                <li>打造<strong style="color: var(--accent-gold);">5个+</strong>百万粉级学生主播IP</li>
+                <li>年营收突破<strong style="color: var(--accent-gold);">800万元</strong></li>
+                <li>成功申报<strong>广州市产教融合示范基地</strong></li>
+                <li>与<strong style="color: var(--accent-blue);">30家+</strong>头部企业建立稳定合作</li>
+                <li>形成可复制、可推广的人才培养模式</li>
+            </ul>
+        </div>
+
+        <div class="card gold">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                <div style="padding: 6px 12px; background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue)); color: white; border-radius: 6px; font-size: 12px; font-weight: 700;">长期</div>
+                <div style="font-size: 13px; color: var(--text-muted);">3-5年</div>
+            </div>
+            <ul>
+                <li>成为<strong style="color: var(--accent-gold);">华南地区领先</strong>的高校直播人才孵化基地</li>
+                <li>年输出优质直播人才<strong style="color: var(--accent-blue);">1000人+</strong></li>
+                <li>打造<strong style="color: var(--accent-gold);">20个+</strong>百万粉级正能量IP</li>
+                <li>年营收突破<strong style="color: var(--accent-gold);">2500万元</strong></li>
+                <li>成功申报<strong style="color: var(--accent-gold);">国家级</strong>产教融合示范基地</li>
+                <li>推动直播行业规范化、职业化发展</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px;" class="card">
+        <div style="display: flex; justify-content: space-around; align-items: center; text-align: center;">
+            <div>
+                <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">短期营收目标</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--accent-blue);">250<span style="font-size: 14px;">万元</span></div>
+            </div>
+            <div style="font-size: 24px; color: var(--border-color);">→</div>
+            <div>
+                <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">中期营收目标</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--accent-gold);">800<span style="font-size: 14px;">万元</span></div>
+            </div>
+            <div style="font-size: 24px; color: var(--border-color);">→</div>
+            <div>
+                <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">长期营收目标</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--accent-gold);">2500<span style="font-size: 14px;">万元</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span class="logo-text">HUASHANG · XINGZHI MEDIA</span>
+        <span>直播孵化基地项目规划</span>
+    </div>
+</div>
+
+<!-- Slide 13: End -->
+<div class="slide cover-slide" style="justify-content: center; align-items: center; text-align: center;">
+    <div style="position: relative; z-index: 2;">
+        <div class="cover-badge">
+            <i class="fas fa-rocket"></i>
+            携手共创 · 四方共赢
+        </div>
+        <h1 style="font-size: 48px; font-weight: 900; margin-bottom: 24px; background: linear-gradient(135deg, #E8ECF1 0%, #B8956A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            共建华南直播人才孵化新标杆
+        </h1>
+        <p style="font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; line-height: 1.6;">
+            学校 · 企业 · 学生 · 行业<br>
+            打造产教融合示范样板，引领直播行业规范化发展
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 60px;">
+            <div style="padding: 16px 32px; background: rgba(91, 141, 184, 0.1); border: 1px solid var(--accent-blue); border-radius: 8px;">
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">合作方</div>
+                <div style="font-size: 16px; font-weight: 600;">广州华商学院</div>
+            </div>
+            <div style="padding: 16px 32px; background: rgba(184, 149, 106, 0.1); border: 1px solid var(--accent-gold); border-radius: 8px;">
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">合作方</div>
+                <div style="font-size: 16px; font-weight: 600;">广州行之传媒有限公司</div>
+            </div>
+        </div>
+        <div style="font-size: 14px; color: var(--text-muted); letter-spacing: 3px; text-transform: uppercase;">
+            Thank You
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
